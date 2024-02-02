@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMAZING COMPUTER SCIENCE STUDENT</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="nav-button">About Me</a></li>
+            <li><a href="future.html" class="nav-button">Catch the Cat</a></li>
+            <li><a href="about.html" class="nav-button">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<h2> TIMEKILLER: catch the cat  </h2>
+<h4>btw there are no boundaries </h4>
+<img id="clockIcon" src="clock_icon.png" alt="Clock Icon">
+<h4> hint: scroll up/down/left/right if u can't see it</h4>
+<script>
+    const clockIcon = document.getElementById('clockIcon');
+
+
+function getRandomPosition() {
+    const maxX = window.innerWidth - clockIcon.clientWidth;
+    const maxY = window.innerHeight - clockIcon.clientHeight;
+    const newX = Math.floor(Math.random() * maxX);
+    const newY = Math.floor(Math.random() * maxY);
+    return { x: newX, y: newY };
+}
+
+
+clockIcon.addEventListener('click', () => {
+    const newPosition = getRandomPosition();
+    clockIcon.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+});
+
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

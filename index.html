@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMAZING COMPUTER SCIENCE STUDENT</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <img src="loading.gif" alt="Loading..." width="100" height="100">
+    </div>
+    <div id="main-content" style="display: none;"> 
+
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-button">About Me</a></li>
+                    <li><a href="future.html" class="nav-button">Catch the Cat</a></li>
+                    <li><a href="about.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+            <h1>Welcome to my Time Capsule</h1>
+        </header>
+
+        <section>
+            <h2 class="color-change">About Me</h2>
+            <p>Hello,Hi & Welcome!</p>
+            <p>I'm <strong>Noor Babar</strong>! I'm a computer science student (first year) at UNSW majoring in Security Engineering and aim to go into the cybersecurity field. This is my digital space where time stands still.</p>
+                <p> Below are some fun facts about me hehe </p>
+        
+            <table>
+                <tr>
+                    <td class="color-change"><strong>Age</strong></td>
+                    <td class="color-change">18</td>
+                </tr>
+                <tr>
+                    <td class="color-change"><strong>Degree</strong></td>
+                    <td class="color-change">Computer Science</td>
+                </tr>
+                <tr>
+                    <td class="color-change"><strong>Major</strong></td>
+                    <td class="color-change">Cybersecurity</td>
+                </tr>
+                <tr>
+                    <td class="color-change"><strong>Ethnicity</strong></td>
+                    <td class="color-change">Pakistan</td>
+                </tr>
+                <tr>
+                    <td class="color-change"><strong>Hobbies</strong></td>
+                    <td id="hobbiesContent" class="color-change" onclick="changeHobby()"><strong><u>Watching K-Dramas</strong></u></td>
+                </tr>
+                <tr>
+                    <td class="color-change"><strong>Favourite Movies</strong></td>
+                    <td id="moviesContent" class="color-change" onclick="changeMovie()"> <strong><u>Maze Runner</strong></u></td>
+                </tr>
+            </table>
+        </section>
+        <h5>click on my hobbies + fav movies to see more</h5>
+
+        <h3 class="color-change"> Timeless Joyrides: Little Me, Big Memories ft. my dora car </h3>
+        <div class="center-image">
+
+        <img src="noor.png" alt="noor" width="300" height="200">
+    </div>
+
+        <footer>
+            <p>&copy; 2024 Noor's Time Capsule</p>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                setTimeout(function() {
+
+                    document.getElementById("loading-screen").style.display = "none";
+                    document.getElementById("main-content").style.display = "block";
+                }, 5000); 
+            });
+
+            const clockIcon = document.getElementById('clockIcon');
+
+            function getRandomPosition() {
+                const maxX = window.innerWidth - clockIcon.clientWidth;
+                const maxY = window.innerHeight - clockIcon.clientHeight;
+                const newX = Math.floor(Math.random() * maxX);
+                const newY = Math.floor(Math.random() * maxY);
+                return { x: newX, y: newY };
+            }
+
+            clockIcon.addEventListener('click', () => {
+                const newPosition = getRandomPosition();
+                clockIcon.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+            });
+
+            function changeHobby() {
+                const hobbiesContent = document.getElementById('hobbiesContent');
+                const hobbies = ['Watching K-Dramas', 'Gym', 'Hair Styling', 'Drinking Boba', 'Reading', 'Coding', 'Traveling'];
+                const currentHobby = hobbiesContent.innerText;
+                const nextHobby = getNextHobby(currentHobby, hobbies);
+                hobbiesContent.innerText = nextHobby;
+            }
+
+            function getNextHobby(currentHobby, hobbies) {
+                const currentIndex = hobbies.indexOf(currentHobby);
+                const nextIndex = (currentIndex + 1) % hobbies.length;
+                return hobbies[nextIndex];
+            }
+
+            function changeMovie() {
+    const moviesContent = document.getElementById('moviesContent');
+    const movies = ['Maze Runner', 'Divergent', 'White Chicks', 'Black Panther', 'Avatar', 'Karate Kid', 'Tangled', 'Big Hero 6 +200 more'];
+    const currentMovie = moviesContent.innerText;
+    const nextMovie = getNextMovie(currentMovie, movies);
+    moviesContent.innerText = nextMovie;
+}
+
+function getNextMovie(currentMovie, movies) {
+    const currentIndex = movies.indexOf(currentMovie);
+    const nextIndex = (currentIndex + 1) % movies.length;
+    return movies[nextIndex];
+}
+        </script>
+    </div>
+</body>
+</html>
