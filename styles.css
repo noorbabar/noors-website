@@ -1,18 +1,19 @@
+
 body {
     font-family: 'Fantasy';
     margin: 0;
     padding: 0;
-    background-image: url('backround.gif');
+    background-image: url('backround.gif'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #ffffff;
+    color: #ffffff; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; 
 }
-
+  
 header {
     background-size: cover;
     background-position: center center;
@@ -20,20 +21,25 @@ header {
     text-align: center;
     padding: 20px;
     margin:20;
-}
-
-h1 {
+  }
+  
+  h1 {
     margin: 20;
-}
+  }
+  
+.clock-gif {
+    width: 100px; 
+    height: auto; 
+ }
 
-h2, h3, h4, h5, h6 {
+ h2, h3, h4, h5, h6 {
     font-style: oblique;
     text-align: center;
     padding: 15px;
-}
+  }
 
 nav {
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 
 nav ul {
@@ -52,56 +58,60 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 20px;
-    background-color: #f8c6e9e2;
-    border-radius: 5px;
-    transition: background-color 0.4s ease;
+    padding: 10px 20px; 
+    background-color: #f8c6e9e2; 
+    border-radius: 5px; 
+    transition: background-color 0.4s ease; 
 }
 
 nav a:hover {
-    background-color: #e4a2ca;
+    background-color: #e4a2ca; 
 }
+
 
 main {
     margin: 20px;
     text-align: center;
 }
 
+
 table {
     border-collapse: collapse;
-    width: 60%;
-    background-color: rgba(255, 255, 255, 0.8);
+    width: 60%; 
+    background-color: rgba(255, 255, 255, 0.8); 
     margin: 20px auto;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: hidden; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 table td,
 table th {
-    border: 1px solid #eaade9;
-    padding: 10px;
+    border: 1px solid #eaade9; 
+    padding: 10px; 
     text-align: center;
 }
 
 th {
-    background-color: #efa0da;
+    background-color: #efa0da; 
     color: #fff;
     text-align: center;
 }
 
+
 td {
-    margin-right: 10px;
+    margin-right: 10px; 
 }
 
+
 @keyframes colorChange {
-    0% { color: #ff0090; }
-    50% { color: #f97fff; }
-    100% { color: #ff00cc; }
+    0% { color: #ff0090; } 
+    50% { color: #f97fff; } 
+    100% { color: #ff00cc; } 
 }
 
 .color-change {
-    animation: colorChange 6s infinite;
+    animation: colorChange 6s infinite; 
 }
 
 #loading-screen {
@@ -110,27 +120,28 @@ td {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: #333; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #loading-screen img {
-    width: 500px;
+    width: 500px; 
     height: 500px;
 }
-
 #clockIcon {
-    width: 200px;
-    height: 200px;
-    margin-top: 10px;
+    width: 150px; 
+    height: 150px;
+    margin-top:20px; 
 }
+
 
 section {
     margin: 20px;
     text-align: center;
 }
+
 
 @media only screen and (max-width: 600px) {
 }
@@ -139,20 +150,54 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-img {
-    max-width: 100%;
+  }
+  
+  img {
+    max-width: 100%; 
     max-height: 100%;
+  }
+  #score, #timer {
+    font-size: 1.5em;
+    margin: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
+#score {
+    color: white;
+}
 
-    nav a {
-        margin: 5px 0;
-    }
+#timer {
+    color: hotpink;
+}
+
+#fakeContactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#fakeContactForm div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background-color: #f8c6e9e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+button:hover {
+    background-color: #e4a2ca;
 }
