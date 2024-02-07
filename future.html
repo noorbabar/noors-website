@@ -2,46 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMAZING COMPUTER SCIENCE STUDENT</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+<div id="clock-widget">
+    <img src="clock.gif" alt="Clock" class="clock-gif">
+ </div>
+ 
 <body>
     <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-button">About Me</a></li>
+                <li><a href="future.html" class="nav-button">Catch the Cat</a></li>
+                <li><a href="about.html" class="nav-button">Contact</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    <h2> TIMEKILLER: Catch the Cat </h2>
+    <h4> Hint: Scroll up/down/left/right </h4>
+    <img id="clockIcon" src="clock_icon.png" alt="Clock Icon">
+    <p id="score"> Score: 0 </p>
+    <p id="timer"> Time: 60 </p>
 
+    <script>
+        const clockIcon = document.getElementById('clockIcon');
+        const scoreElement = document.getElementById('score');
+        const timerElement = document.getElementById('timer');
+        let score = 0;
+        let time = 60; 
 
-    <nav>
-        <ul>
-            <li><a href="index.html" class="nav-button">About Me</a></li>
-            <li><a href="future.html" class="nav-button">Catch the Cat</a></li>
-            <li><a href="about.html" class="nav-button">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-<h2> TIMEKILLER: catch the cat  </h2>
-<h4>btw there are no boundaries </h4>
-<img id="clockIcon" src="clock_icon.png" alt="Clock Icon">
-<h4> hint: scroll up/down/left/right if u can't see it</h4>
-<script>
-    const clockIcon = document.getElementById('clockIcon');
+        function getRandomPosition() {
+            const maxX = window.innerWidth - clockIcon.clientWidth;
+            const maxY = window.innerHeight - clockIcon.clientHeight;
 
+            const newX = Math.max(0, Math.min(Math.floor(Math.random() * maxX), maxX));
+            const newY = Math.max(0, Math.min(Math.floor(Math.random() * maxY), maxY));
 
-function getRandomPosition() {
-    const maxX = window.innerWidth - clockIcon.clientWidth;
-    const maxY = window.innerHeight - clockIcon.clientHeight;
-    const newX = Math.floor(Math.random() * maxX);
-    const newY = Math.floor(Math.random() * maxY);
-    return { x: newX, y: newY };
-}
+            return { x: newX, y: newY };
+        }
 
+        function updateScore() {
+            score++;
+            scoreElement.textContent = `Score: ${score}`;
+        }
 
-clockIcon.addEventListener('click', () => {
-    const newPosition = getRandomPosition();
-    clockIcon.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
-});
+        function updateTimer() {
+            time--;
+            timerElement.textContent = `Time: ${time}`;
 
-</script>
-<script src="script.js"></script>
+            if (time === 0) {
+                alert(`Game Over! Your final score is ${score}`);
+                resetGame();
+            }
+        }
 
+        function resetGame() {
+            score = 0;
+            time = 60;
+            scoreElement.textContent = `Score: ${score}`;
+            timerElement.textContent = `Time: ${time}`;
+            const newPosition = getRandomPosition();
+            clockIcon.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+        }
+
+        clockIcon.addEventListener('click', () => {
+            const newPosition = getRandomPosition();
+            clockIcon.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+            updateScore();
+        });
+
+        setInterval(updateTimer, 1000);
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
