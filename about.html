@@ -25,6 +25,41 @@
      <a href="https://www.linkedin.com/in/noorxb" target="_blank">
         <img src="linkedin_logo.png" alt="LinkedIn Logo" width="40" height="40">
     </a>
-   
+    <h2>Fake Contact Form</h2>
+    <form id="fakeContactForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <button type="button" onclick="submitFakeForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitFakeForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            console.log(`Fake Form Submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+
+            document.getElementById("fakeContactForm").reset();
+
+            alert("Fake form submitted successfully! This is just for fun.");
+        }
+    </script>
+
+    
+
 </body>
 </html>
