@@ -11,6 +11,9 @@
     <div id="loading-screen">
         <img src="loading.gif" alt="Loading..." width="100" height="100">
     </div>
+
+   
+
     <div id="main-content" style="display: none;"> 
 
         <header>
@@ -26,10 +29,9 @@
 
         <section>
             <h2 class="color-change">About Me</h2>
-            <p>Hello, Hi & Welcome!</p>
-            <p>I'm <strong>Noor Babar</strong>! I'm a computer science student (first year) at UNSW majoring in Security Engineering. This is my digital space where time stands still.</p>
-            <p>My interest in computer science and cybersecurity is fueled by my love for self-learning and the excitement of creating projects. The dynamic nature of these fields allows me to continuously explore and expand my knowledge while actively engaging in hands-on projects, making the learning process both fulfilling and practical.</p>
-                <p> Below are some fun facts about me </p>
+            <p>Hello,Hi & Welcome!</p>
+            <p>I'm <strong>Noor Babar</strong>! I'm a computer science student (first year) at UNSW majoring in Security Engineering and aim to go into the cybersecurity field. This is my digital space where time stands still.</p>
+                <p> Below are some fun facts about me hehe </p>
         
             <table>
                 <tr>
@@ -65,7 +67,46 @@
 
         <img src="noor.png" alt="noor" width="300" height="200">
     </div>
+    <h2>Set Your Event Date</h2>
+    <form id="eventForm">
+        <label for="eventDate">Event Date and Time:</label>
+        <input type="datetime-local" id="eventDate" required>
+        <button type="button" onclick="setEventDate()">Set Countdown</button>
+    </form>
+    <div id="countdown"></div>
 
+    <script>
+        let eventDate;
+
+        function setEventDate() {
+            eventDate = new Date(document.getElementById("eventDate").value).getTime();
+
+            if (isNaN(eventDate)) {
+                alert("Please enter a valid date and time.");
+            } else {
+                updateCountdown();
+            }
+        }
+
+        function updateCountdown() {
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const timeRemaining = eventDate - now;
+
+                if (timeRemaining < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerHTML = "Event has passed!";
+                } else {
+                    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+            }, 1000);
+        }
+    </script>
         <footer>
             <p>&copy; 2024 Noor's Time Capsule</p>
         </footer>
@@ -122,6 +163,8 @@ function getNextMovie(currentMovie, movies) {
     return movies[nextIndex];
 }
         </script>
+
+
     </div>
 </body>
 </html>
