@@ -3,12 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading...</title>
-    <link rel="stylesheet" type="text/css" href="loading.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="loading-screen">
-        <img src="loading.gif" alt="Loading..." width="100" height="100">
+
+
+    <iframe src="loading.gif" id="loading-frame" frameborder="0" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; z-index: 1000;"></iframe>
+
+    <div id="main-content" style="display: none;"> 
+
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                setTimeout(function() {
+                    document.getElementById("loading-frame").style.display = "none";
+                    document.getElementById("main-content").style.display = "block";
+                }, 5000); 
+            });
+
+
+        </script>
     </div>
 </body>
 </html>
