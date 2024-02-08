@@ -221,8 +221,6 @@ input, textarea {
         text-shadow: 0 2px 3px hsl(54, 78%, 79%);
       }
 
-    .radial {
-        background-image: radial-gradient(#f9e9b9, #efa1c1);
       }
 .nav-button {
         display: inline-block;
@@ -236,6 +234,8 @@ input, textarea {
         border-radius: 5px;
         transition: background-color 0.3s ease;
       }
-  
-    .button-heading:hover {
-        backg
+
+.nav-button:hover {
+        background-image: radial-gradient(#fffdb4,#ffcf9f);
+      }
+
