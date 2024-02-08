@@ -224,7 +224,7 @@ input, textarea {
     .radial {
         background-image: radial-gradient(#f9e9b9, #efa1c1);
       }
-.button-heading {
+.nav-button {
         display: inline-block;
         padding: 10px 20px;
         font-size: 18px;
