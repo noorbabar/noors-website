@@ -7,7 +7,19 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-   
+
+    <div id="loading-screen">
+    <img src="loading.gif" alt="Loading..." width="100" height="100">
+</div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.getElementById("loading-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        }, 6000);
+    });
+</script>
+    
         <div class="gradient radial"> Welcome to My Time Capsule </div>
 
         <header>
