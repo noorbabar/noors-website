@@ -268,6 +268,10 @@ input, textarea {
         transition: background-color 0.3s ease;
       }
 
+.nav-button:active {
+    background-image: radial-gradient(#ff0090, #f8c6e9e2); 
+}
+
 .nav-button:hover {
         background-image: radial-gradient(#f8c6e9e2,#ff0090);
       }
